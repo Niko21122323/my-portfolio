@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Instrument_Sans, Hubot_Sans } from "next/font/google";
 import "./globals.css";
+import { SmoothScroll } from "@/components/animations/SmoothScroll";
+import Navbar from "@/components/Navbar";
 
 const hubotSans = Hubot_Sans({
   variable: "--font-hubot-sans",
@@ -29,7 +31,10 @@ export default function RootLayout({
         suppressHydrationWarning
         className={`${instrumentSans.variable} ${hubotSans.variable} antialiased`}
       >
-        {children}
+        <SmoothScroll>
+          <Navbar />
+          {children}
+        </SmoothScroll>
       </body>
     </html>
   );

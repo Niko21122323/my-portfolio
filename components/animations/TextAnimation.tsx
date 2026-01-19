@@ -12,12 +12,14 @@ interface TextAnimationProps {
   children: ReactElement | ReactNode;
   animateOnScroll?: boolean;
   delay?: number;
+  scrollStart?: string;
 }
 
 export default function TextAnimation({
   children,
   animateOnScroll = true,
   delay = 0,
+  scrollStart = "top 75%",
 }: TextAnimationProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const elementRef = useRef<HTMLElement[]>([]);
@@ -33,7 +35,6 @@ export default function TextAnimation({
       lines.current = [];
 
       let elements: HTMLElement[] = [];
-
       if (containerRef.current.hasAttribute("data-copy-wrapper")) {
         elements = Array.from(containerRef.current.children) as HTMLElement[];
       } else {
@@ -42,18 +43,15 @@ export default function TextAnimation({
 
       elements.forEach((element) => {
         elementRef.current.push(element);
-
         const split = SplitText.create(element, {
           type: "lines",
           mask: "lines",
           linesClass: "line++",
         });
-
         splitRef.current.push(split);
 
         const computedStyle = window.getComputedStyle(element);
         const textIndent = computedStyle.textIndent;
-
         if (textIndent && textIndent !== "0px") {
           if (split.lines.length > 0) {
             (split.lines[0] as HTMLElement).style.paddingLeft = textIndent;
@@ -79,7 +77,7 @@ export default function TextAnimation({
           ...animationProps,
           scrollTrigger: {
             trigger: containerRef.current,
-            start: "top 75%",
+            start: scrollStart,
             toggleActions: "play none none reverse",
           },
         });
@@ -97,7 +95,7 @@ export default function TextAnimation({
     },
     {
       scope: containerRef,
-      dependencies: [animateOnScroll, delay],
+      dependencies: [animateOnScroll, delay, scrollStart],
     },
   );
 

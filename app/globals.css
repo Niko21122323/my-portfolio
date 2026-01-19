@@ -34,7 +34,7 @@
   --sidebar-ring: oklch(0.708 0 0);
 }
 
-.dark {
+[data-theme="dark"] {
   --background: oklch(0.145 0 0);
   --foreground: oklch(0.985 0 0);
   --card: oklch(0.205 0 0);
@@ -102,11 +102,13 @@
   --color-sidebar-ring: var(--sidebar-ring);
 }
 
-body {
-  font-family: var(--font-instrument-sans);
+* {
+  transition:
+    background-color 0.4s ease,
+    color 0.4s ease,
+    border-color 0.4s ease;
 }
 
-.line {
-  transform: translateY(100%);
-  will-change: transform;
+body {
+  font-family: var(--font-instrument-sans);
 }
