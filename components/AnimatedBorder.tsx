@@ -26,7 +26,7 @@ const AnimatedBorder = ({ className }: { className: string }) => {
           start: "top 85%",
           toggleActions: "play none none reverse",
         },
-      },
+      }
     );
   });
 

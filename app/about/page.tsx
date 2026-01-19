@@ -1,35 +1,38 @@
 import Image from "next/image";
 import heroImage from "../../public/assets/images/about/about-hero-image.jpg";
 import PrimaryButton from "@/components/buttons/PrimaryButton";
+import { services } from "@/data/data";
+import AnimatedBorder from "@/components/AnimatedBorder";
 
 const page = () => {
   return (
     <>
-      <section className="bg-background pt-36">
-        <div className="container mx-auto px-2">
-          <h1 className="text-7xl text-foreground pb-20">
+      <section className="bg-background py-24 lg:py-36">
+        <div className="container mx-auto px-6">
+          <h1 className="text-pretty text-5xl md:text-6xl xl:text-7xl text-foreground pb-12 lg:pb-20">
             Who I Am and What I Do
           </h1>
-          <div className="grid grid-cols-12 gap-20 pt-20 border-t border-border">
-            <div className="col-span-4">
+
+          <div className="relative grid lg:grid-cols-12 gap-12 lg:gap-20 pt-12 lg:pt-20">
+            <AnimatedBorder className="absolute top-0 left-0" />
+
+            <div className="lg:col-span-4 relative min-h-72">
               <Image
                 src={heroImage}
                 alt="hero image"
                 height={800}
                 width={500}
-                className="h-auto w-full object-cover"
+                className="absolute top-0 left-0 w-full h-full object-cover max-lg:object-top"
               />
             </div>
-            <div className="col-span-8">
-              <h2 className="text-foreground text-4xl">
-                <span className="float-right">
-                  Hi, I’m Nikola I’m a full-stack
-                </span>
-                <br />
-                developer who loves building clean, modern web apps and turning
-                ideas into things people actually enjoy using.
+            <div className="flex flex-col gap-10 xl:gap-20 lg:col-span-8">
+              <h2 className="text-foreground text-2xl sm:text-3xl xl:text-[42px] leading-tight">
+                Hi, I’m Nikola I’m a full-stack developer who loves building
+                clean, modern web apps and turning ideas into things people
+                actually enjoy using.
               </h2>
-              <p className="text-muted-foreground">
+
+              <p className="text-muted-foreground text-base md:text-lg">
                 I work across the full stack, building everything from
                 responsive, polished interfaces to scalable backends that just
                 work. Over the past few years, I’ve collaborated on real-world
@@ -38,8 +41,40 @@ const page = () => {
                 performance, and creating experiences that feel simple and
                 intuitive for the people using them.
               </p>
-              <PrimaryButton title="Let's  WorkTogether" link="/" />
+
+              <div>
+                <PrimaryButton title="Let's  WorkTogether" link="/" />
+              </div>
             </div>
+          </div>
+        </div>
+      </section>
+      <section className="pb-24 sm:py-24 lg:py-36">
+        <div className="container mx-auto px-6">
+          <h3 className="text-foreground text-3xl sm:text-4xl lg:text-5xl xl:text-6xl max-w-[1000px] leading-tight pb-12 lg:pb-24">
+            What I do, from frontend to backend and everything in between.
+          </h3>
+
+          <div className="flex flex-col gap-12 lg:gap-24">
+            {services.map((service) => (
+              <div
+                key={service.id}
+                className="relative grid lg:grid-cols-12 gap-y-8 lg:gap-x-20 pt-12 lg:pt-24 border-t border-border"
+              >
+                <div className="flex flex-col sm:flex-row items-start max-lg:gap-6 lg:grid lg:grid-cols-7 lg:col-span-7">
+                  <span className="text-lg text-muted-foreground col-span-2">
+                    0{service.id}
+                  </span>
+                  <h5 className="text-foreground text-2xl md:text-3xl xl:text-4xl leading-tight col-span-5">
+                    {service.title}
+                  </h5>
+                </div>
+
+                <p className="text-muted-foreground lg:col-span-5">
+                  {service.text}
+                </p>
+              </div>
+            ))}
           </div>
         </div>
       </section>

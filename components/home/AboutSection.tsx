@@ -13,9 +13,9 @@ const AboutSection = () => {
               About Me
             </span>
             <h2 className="text-foreground text-center text-4xl leading-tight max-w-3xl py-12">
-              I'm Nikola, a full-stack developer crafting fast, scalable, and
-              user-focused digital experiences from frontend polish to backend
-              logic.
+              I&apos;m Nikola, a full-stack developer crafting fast, scalable,
+              and user-focused digital experiences from frontend polish to
+              backend logic.
             </h2>
             <p className="text-ring text-center text-xl max-w-3xl">
               I develop end-to-end web applications using JavaScript,
