@@ -1,11 +1,66 @@
 import Image from "next/image";
 import heroImage from "../../public/assets/images/about/about-hero-image.jpg";
 import PrimaryButton from "@/components/buttons/PrimaryButton";
-import { services } from "@/data/data";
 import AnimatedBorder from "@/components/AnimatedBorder";
 import TitleLoop from "@/components/TitleLoop";
 
+import { StaticImageData } from "next/image";
+import testImg1 from "../../public/assets/images/projects/tp1.png";
+import testImg2 from "../../public/assets/images/projects/tp2.png";
+import testImg3 from "../../public/assets/images/projects/tp3.png";
+
 const page = () => {
+  interface StoryChapter {
+    id: number;
+    year: number;
+    title: string;
+    description: string;
+    images: (string | StaticImageData)[];
+  }
+
+  const myStory: StoryChapter[] = [
+    {
+      id: 1,
+      year: 2022,
+      title: "Self-Taught Beginnings",
+      description:
+        "I started learning how to code on my own, driven by curiosity and a desire to build things from scratch.",
+      images: [testImg1, testImg2, testImg3],
+    },
+    {
+      id: 2,
+      year: 2023,
+      title: "Full-Stack Academy",
+      description:
+        "I enrolled in Semos Education, where I improved my skills and gained hands-on experience with HTML, CSS, JavaScript, Node.js, TypeScript, MongoDB, and React.",
+      images: [testImg1, testImg2, testImg3],
+    },
+    {
+      id: 3,
+      year: 2024,
+      title: "Frontend Developer at Pabau",
+      description:
+        "I launched my career as a frontend developer, improving my skills and learning new technologies like GraphQL, Prisma, and Jest, while collaborating with a professional team.",
+      images: [testImg1, testImg2, testImg3],
+    },
+    {
+      id: 4,
+      year: 2025,
+      title: "Frontend Developer at Thrasker",
+      description:
+        "At Thrasker, I worked with Astro.js and Shopify, contributed to real-world projects, made lasting connections, and took my frontend expertise to the next level.",
+      images: [testImg1, testImg2, testImg3],
+    },
+    {
+      id: 5,
+      year: 2026,
+      title: "Freelance Full-Stack Developer",
+      description:
+        "Now I work as a freelance full-stack developer, creating modern, user-focused web projects and bringing ideas from concept to deployment on and off freelancing platforms.",
+      images: [testImg1, testImg2, testImg3],
+    },
+  ];
+
   return (
     <>
       <section className="bg-background py-24 lg:py-36">
@@ -70,7 +125,40 @@ const page = () => {
       </section>
       <section className="pb-24 lg:pb-36">
         <div className="container mx-auto px-4 sm:px-6">
-          <div className="border-t border-border"></div>
+          <div className="flex items-start justify-between border-t border-border pt-4">
+            <span className="text-foreground text-base">My Story</span>
+            <span className="text-foreground text-base">2022 - 2025</span>
+          </div>
+          <div className="flex flex-col gap-10 pt-36">
+            {myStory.map((chapter) => (
+              <div
+                key={chapter.id}
+                className="grid grid-cols-12 border-b border-border pb-10"
+              >
+                <div className="col-span-3">
+                  <span className="text-foreground text-lg">
+                    {chapter.year}
+                  </span>
+                </div>
+                <div className="col-span-5">
+                  <h5 className="text-foreground text-3xl">{chapter.title}</h5>
+                </div>
+                <div className="grid grid-cols-3 gap-3 col-span-3 col-end-13">
+                  {chapter.images.map((image, index) => (
+                    <div key={index}>
+                      <Image
+                        src={image}
+                        alt="image"
+                        width={100}
+                        height={100}
+                        className="h-full w-full object-cover"
+                      />
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
     </>
