@@ -12,10 +12,10 @@ const page = () => {
         <div className="container mx-auto px-4 sm:px-6">
           <TitleLoop title="Who I Am and What I Do" />
 
-          <div className="relative grid lg:grid-cols-12 gap-12 lg:gap-20 pt-12 lg:pt-20">
+          <div className="relative grid lg:grid-cols-12 gap-12 pt-12 lg:pt-20">
             <AnimatedBorder className="absolute top-0 left-0" />
 
-            <div className="lg:col-span-4 relative min-h-72 max-lg:hidden">
+            <div className="lg:col-span-3 relative min-h-72 max-lg:hidden">
               <Image
                 src={heroImage}
                 alt="hero image"
@@ -25,9 +25,9 @@ const page = () => {
               />
             </div>
 
-            <div className="flex flex-col gap-6 sm:gap-10 xl:gap-20 lg:col-span-8">
+            <div className="flex flex-col gap-6 sm:gap-10 xl:gap-20 lg:col-span-8 lg:col-start-5">
               <h2 className="text-foreground text-2xl sm:text-3xl xl:text-[42px] leading-tight">
-                Hi, I’m Nikola I’m a full-stack developer who loves building
+                Hi, I'm Nikola I’m a full-stack developer who loves building
                 clean, modern web apps and turning ideas into things people
                 actually enjoy using.
               </h2>

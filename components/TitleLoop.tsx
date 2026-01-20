@@ -13,7 +13,6 @@ const TitleLoop = ({ title }: TitleLoopProps) => {
   const timeline = useRef<GSAPTimeline | null>(null);
   const timelineTimeScaleTween = useRef<GSAPTween | null>(null);
 
-  // Create enough repetitions to ensure smooth infinite scroll
   const titleArray = useMemo(() => Array(15).fill(title), [title]);
 
   useEffect(() => {
@@ -72,7 +71,7 @@ const TitleLoop = ({ title }: TitleLoopProps) => {
         ))}
       </div>
     ),
-    [titleArray]
+    [titleArray],
   );
 
   return (
