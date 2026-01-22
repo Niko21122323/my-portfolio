@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Instrument_Sans } from "next/font/google";
 import "./globals.css";
+import "swiper/css/bundle";
 import { SmoothScroll } from "@/components/animations/SmoothScroll";
 import Navbar from "@/components/Navbar";
 

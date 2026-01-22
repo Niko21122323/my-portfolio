@@ -3,6 +3,7 @@ import Image from "next/image";
 import heroImage from "../../public/assets/images/about/about-hero-image.jpg";
 
 import { LiaDownloadSolid } from "react-icons/lia";
+import ProjectSlider from "@/components/ProjectSlider";
 
 const page = () => {
   return (
@@ -32,7 +33,7 @@ const page = () => {
           <div className="grid md:grid-cols-12 gap-20 pt-10 md:pt-16">
             <div className="md:col-span-7">
               <h2 className="max-[370px]:text-2xl text-2xl lg:text-[32px] md:pb-16">
-                I’m Nikola, a full-stack developer with over 3 years of
+                I'm Nikola, a full-stack developer with over 3 years of
                 professional experience based in Skopje, Macedonia.
               </h2>
               <div className="aspect-video my-10 md:hidden">
@@ -93,6 +94,7 @@ const page = () => {
           </div>
         </div>
       </section>
+      <ProjectSlider />
     </>
   );
 };
