@@ -4,6 +4,7 @@ import heroImage from "../../public/assets/images/about/about-hero-image.jpg";
 
 import { LiaDownloadSolid } from "react-icons/lia";
 import ProjectSlider from "@/components/ProjectSlider";
+import TechnologiesLoop from "@/components/TechnologiesLoop";
 
 const page = () => {
   return (
@@ -95,6 +96,25 @@ const page = () => {
         </div>
       </section>
       <ProjectSlider />
+      <section className="pb-36">
+        <div className="container mx-auto xl:max-w-6xl px-6">
+          <div className="grid md:grid-cols-12 gap-6 md:gap-12">
+            <div className="md:col-span-3">
+              <span className="text-muted-foreground">How I got here</span>
+            </div>
+            <p className="text-foreground text-lg sm:text-xl lg:text-2xl md:col-span-9 md:col-end-13">
+              I started learning how to code on my own, then joined a full-stack
+              development program at Semos Education to sharpen my skills. After
+              that, I worked as a frontend developer, learning technologies like
+              GraphQL, Prisma, and Jest, and later joined Thrasker, where I
+              worked with Astro and Shopify on real-world projects. Today, I
+              work as a freelance full-stack developer, building modern web
+              applications from idea to deployment.
+            </p>
+          </div>
+        </div>
+      </section>
+      <TechnologiesLoop />
     </>
   );
 };

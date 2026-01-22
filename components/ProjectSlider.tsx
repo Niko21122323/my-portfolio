@@ -9,23 +9,32 @@ import Link from "next/link";
 
 const ProjectSlider = () => {
   const containerRef = useRef<HTMLDivElement>(null);
+  const scrollRef = useRef<HTMLDivElement>(null);
   const tweenRef = useRef<gsap.core.Tween | null>(null);
+
+  const duplicatedProjects = [...projects, ...projects];
 
   useGSAP(
     () => {
-      const container = containerRef.current;
-      if (!container) return;
+      const scrollContainer = scrollRef.current;
+      if (!scrollContainer) return;
 
-      const scrollWidth = container.scrollWidth / 2;
+      const items = Array.from(scrollContainer.children) as HTMLElement[];
+      const halfIndex = Math.floor(items.length / 2);
 
-      tweenRef.current = gsap.to(container, {
-        x: -scrollWidth,
+      const scrollDistance = items[halfIndex].offsetLeft;
+
+      tweenRef.current = gsap.to(scrollContainer, {
+        x: -scrollDistance,
         duration: 30,
         ease: "none",
         repeat: -1,
+        onRepeat: () => {
+          gsap.set(scrollContainer, { x: 0 });
+        },
       });
     },
-    { scope: containerRef },
+    { scope: containerRef, dependencies: [projects] },
   );
 
   const handleMouseEnter = () => {
@@ -44,36 +53,36 @@ const ProjectSlider = () => {
     });
   };
 
-  const duplicatedProjects = [...projects, ...projects];
-
   return (
     <section className="pb-36 overflow-hidden">
-      <div className="container mx-auto lg:max-w-6xl px-6">
+      <div
+        className="container mx-auto xl:max-w-6xl px-6 overflow-x-hidden"
+        ref={containerRef}
+      >
         <Link
           href={"/"}
-          className="relative overflow-hidden"
+          className="relative block overflow-hidden"
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
         >
-          <div ref={containerRef} className="flex gap-5 will-change-transform">
+          <div ref={scrollRef} className="flex gap-5 will-change-transform">
             {duplicatedProjects.map((project, index) => (
               <div
                 key={`${project.id}-${index}`}
                 className="flex-shrink-0 cursor-pointer basis-[calc(83.333%-16.67px)] sm:basis-[calc(50%-10px)] lg:basis-[calc(33.333%-13.33px)]"
               >
-                <div className="overflow-hidden rounded-md">
+                <div className="overflow-hidden bg-muted">
                   <Image
                     src={project.image}
                     alt={project.name}
                     width={500}
                     height={700}
-                    className="h-72 w-full object-cover transition-transform duration-500 hover:scale-105"
+                    priority={index < 6}
+                    className="min-h-82 w-full object-cover transition-transform duration-500 hover:scale-105"
                   />
                 </div>
-                <div className="pt-2 text-center">
-                  <p className="text-sm font-medium text-foreground/90">
-                    {project.name}
-                  </p>
+                <div className="pt-2">
+                  <p className="text-sm text-foreground/90">{project.name}</p>
                 </div>
               </div>
             ))}
