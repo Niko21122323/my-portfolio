@@ -54,7 +54,7 @@ const ProjectSlider = () => {
   };
 
   return (
-    <section className="pb-36 overflow-hidden">
+    <section className="pb-24 lg:pb-36 overflow-hidden">
       <div
         className="container mx-auto xl:max-w-6xl px-6 overflow-x-hidden"
         ref={containerRef}

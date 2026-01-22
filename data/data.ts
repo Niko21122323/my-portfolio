@@ -145,4 +145,64 @@ const services = [
   },
 ];
 
-export { projects, services };
+const technologiesUsed = [
+  {
+    id: 1,
+    title: "Languages & Frameworks",
+    technologies: [
+      "JavaScript",
+      "TypeScript",
+      "React.js",
+      "Next.js",
+      "Astro.js",
+      "Node.js",
+      "NestJS",
+    ],
+  },
+  {
+    id: 2,
+    title: "Databases & ORM",
+    technologies: ["MongoDB", "SQL", "NoSQL", "Prisma", "Supabase", "Firebase"],
+  },
+  {
+    id: 3,
+    title: "UI & Styling",
+    technologies: ["HTML", "CSS", "SCSS", "Tailwind CSS"],
+  },
+  {
+    id: 4,
+    title: "3D & Animation",
+    technologies: ["Three.js", "GSAP", "Framer Motion"],
+  },
+  {
+    id: 5,
+    title: "Other Tools & Technologies",
+    technologies: ["GraphQL", "Jest", "Shopify"],
+  },
+];
+
+const workExperiences = [
+  {
+    id: 1,
+    place: "Pabau",
+    role: "Front-End Developer",
+    description:
+      "Launched my career building responsive interfaces, improving frontend skills, and learning GraphQL, Prisma, and Jest.",
+  },
+  {
+    id: 2,
+    place: "Thrasker",
+    role: "Front-End Developer",
+    description:
+      "Worked with Astro.js and Shopify on real projects, collaborating with an amazing team and leveling up my frontend expertise.",
+  },
+  {
+    id: 3,
+    place: "Freelance",
+    role: "Full-Stack Developer",
+    description:
+      "Now I create modern, user-focused web applications from idea to deployment on and off freelancing platforms.",
+  },
+];
+
+export { projects, services, technologiesUsed, workExperiences };
