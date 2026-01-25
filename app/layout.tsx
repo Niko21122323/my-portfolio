@@ -4,6 +4,8 @@ import "./globals.css";
 import "swiper/css/bundle";
 import { SmoothScroll } from "@/components/animations/SmoothScroll";
 import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
+import Lenis from "@/components/providers/lenis-provider";
 
 const instrumentSans = Instrument_Sans({
   variable: "--font-instrument-sans",
@@ -26,10 +28,11 @@ export default function RootLayout({
         suppressHydrationWarning
         className={`${instrumentSans.variable} antialiased`}
       >
-        <SmoothScroll>
+        <Lenis>
           <Navbar />
           {children}
-        </SmoothScroll>
+          <Footer />
+        </Lenis>
       </body>
     </html>
   );
