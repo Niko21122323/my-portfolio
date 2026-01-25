@@ -56,7 +56,7 @@ const ProjectSlider = () => {
   return (
     <section className="py-24 lg:py-36 overflow-hidden">
       <div
-        className="container mx-auto xl:max-w-6xl px-6 overflow-x-hidden"
+        className="container mx-auto xl:max-w-7xl px-6 overflow-x-hidden"
         ref={containerRef}
       >
         <Link

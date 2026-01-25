@@ -10,7 +10,7 @@ const page = () => {
   return (
     <>
       <section className="py-24 md:py-36">
-        <div className="container mx-auto xl:max-w-6xl px-6">
+        <div className="container mx-auto xl:max-w-7xl px-6">
           <div className="flex items-end justify-between md:gap-10 border-b border-border pb-10 md:pb-16">
             <h1 className="text-foreground max-[370px]:text-4xl text-5xl sm:text-6xl lg:text-7xl xl:text-8xl leading-tight">
               Who I Am and <br /> What I Do
@@ -31,13 +31,13 @@ const page = () => {
               </Link>
             </div>
           </div>
-          <div className="grid md:grid-cols-12 gap-20 pt-10 md:pt-16">
-            <div className="md:col-span-7">
-              <h2 className="max-[370px]:text-2xl text-2xl lg:text-[32px] md:pb-16">
+          <div className="grid lg:grid-cols-12 gap-20 pt-10 md:pt-16">
+            <div className="lg:col-span-7">
+              <h2 className="max-[370px]:text-2xl text-2xl lg:text-[32px] lg:pb-16">
                 I'm Nikola, a full-stack developer with over 3 years of
                 professional experience based in Skopje, Macedonia.
               </h2>
-              <div className="aspect-video my-10 md:hidden">
+              <div className="aspect-video my-10 lg:hidden">
                 <Image
                   src={heroImage}
                   alt="hero image"
@@ -67,7 +67,7 @@ const page = () => {
                   </p>
                 </div>
               </div>
-              <div className="md:hidden pt-10">
+              <div className="lg:hidden pt-10">
                 <Link
                   href={"/"}
                   className="grid grid-cols-[1fr_auto] items-start gap-1 w-fit"
@@ -83,7 +83,7 @@ const page = () => {
                 </Link>
               </div>
             </div>
-            <div className="relative col-span-4 lg:col-end-13 max-md:hidden">
+            <div className="relative lg:col-span-4 lg:col-end-13 max-lg:hidden">
               <Image
                 src={heroImage}
                 alt="about image"
@@ -96,7 +96,7 @@ const page = () => {
         </div>
       </section>
       <section className="pb-24 lg:pb-36">
-        <div className="container mx-auto xl:max-w-6xl px-6">
+        <div className="container mx-auto xl:max-w-7xl px-6">
           <div className="grid xl:grid-cols-6 gap-10 md:gap-24 lg:gap-10 pt-24 lg:pt-36 border-t border-border">
             <h3 className="text-foreground text-3xl lg:text-2xl xl:col-span-2">
               My Experience
@@ -129,7 +129,7 @@ const page = () => {
         </div>
       </section>
       <section className="pb-24 lg:pb-36">
-        <div className="container mx-auto xl:max-w-6xl px-6">
+        <div className="container mx-auto xl:max-w-7xl px-6">
           <div className="grid lg:grid-cols-6 gap-10 md:gap-24 lg:gap-10 pt-24 lg:pt-36 border-t border-border">
             <div className="lg:col-span-2">
               <h3 className="text-foreground text-3xl lg:text-2xl">

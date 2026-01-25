@@ -7,10 +7,9 @@ import WhatIDoSection from "@/components/WhatIDoSection";
 export default function Home() {
   return (
     <>
-      <HeroSection />
+      <section className="h-screen bg-muted-foreground"></section>
       <AboutSection />
       <ProjectSection />
-      <WhatIDoSection />
     </>
   );
 }

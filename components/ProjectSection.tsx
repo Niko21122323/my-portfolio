@@ -8,7 +8,7 @@ import ElementAnimation from "./animations/ElementAnimation";
 const ProjectSection = () => {
   return (
     <section className="pb-52 bg-background">
-      <div className="container mx-auto px-8">
+      <div className="container mx-auto px-6">
         <div className="grid grid-cols-12 row-span-9 gap-y-36">
           {projects.map((project) => (
             <div
