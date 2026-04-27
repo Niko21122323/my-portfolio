@@ -16,11 +16,12 @@ export async function generateStaticParams() {
 const page = async ({ params }: { params: Promise<{ slug: string }> }) => {
   const { slug } = await params;
   const project = await getProjectBySlug(slug);
-  const { frontmatter, content } = project;
 
   if (!project) {
     notFound();
   }
+
+  const { frontmatter, content } = project;
 
   return (
     <main>

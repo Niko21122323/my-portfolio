@@ -69,3 +69,22 @@ export type NavItemProps = {
   label: string;
   closeMenu: () => void;
 };
+
+export interface ProjectPageTypes {
+  slug: string;
+  content: string;
+  frontmatter: {
+    title: string;
+    workDone: string;
+    projectType: string;
+    liveLink: string;
+    githubLink: string;
+    projectImages: string[];
+    technologies: {
+      category: string;
+      items: string[];
+    }[];
+    learnings: string[];
+    [key: string]: any;
+  };
+}
