@@ -28,15 +28,17 @@ const page = () => {
       <AboutMeImageSection />
       <section className="section-padding-y">
         <div className="container">
-          <p className="text-base sm:text-xl md:text-2xl lg:text-4xl text-foreground font-medium leading-tight">
-            A full stack web developer with three years of experience shipping
-            production-ready applications across agency and SaaS environments.
-            Partners with designers, backend engineers, and QA teams to deliver
-            reliable, high-performing products on tight timelines. Confident in
-            the ability to thrive in fast-paced settings and leverage skills in
-            JavaScript/TypeScript development, frontend architecture, and API
-            integration to enable team success.
-          </p>
+          <TextReveal>
+            <p className="text-base sm:text-xl md:text-2xl lg:text-4xl text-foreground font-medium leading-tight">
+              A full stack web developer with three years of experience shipping
+              production-ready applications across agency and SaaS environments.
+              Partners with designers, backend engineers, and QA teams to
+              deliver reliable, high-performing products on tight timelines.
+              Confident in the ability to thrive in fast-paced settings and
+              leverage skills in JavaScript/TypeScript development, frontend
+              architecture, and API integration to enable team success.
+            </p>
+          </TextReveal>
         </div>
       </section>
       <section>

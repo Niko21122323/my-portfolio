@@ -3,6 +3,7 @@ import Link from "next/link";
 
 import { ProjectCardType } from "@/lib/types";
 import PopAnimation from "./animations/PopAnimation";
+import RevealAnimation from "./animations/RevelAnimation";
 
 const ProjectCard = ({
   role,
@@ -12,7 +13,7 @@ const ProjectCard = ({
   hoverImage,
 }: ProjectCardType) => {
   return (
-    <PopAnimation delay={0.3}>
+    <RevealAnimation delay={0.3}>
       <Link
         href={projectLink}
         className="block relative overflow-hidden rounded-2xl sm:rounded-3xl group"
@@ -21,11 +22,15 @@ const ProjectCard = ({
           src={projectImage}
           alt={`${title} cover image`}
           className="w-full h-auto object-cover"
+          loading="eager"
+          placeholder="blur"
         />
         <Image
           src={hoverImage}
           alt={`${title} cover image`}
           className="absolute top-0 left-0 w-full h-full z-10 opacity-0 object-cover group-hover:opacity-100 transition-opacity duration-300 ease-in-out"
+          loading="eager"
+          placeholder="blur"
         />
 
         <div className="absolute left-6 bottom-6 flex flex-col gap-2 z-20">
@@ -35,7 +40,7 @@ const ProjectCard = ({
           <span className="text-foreground text-sm font-light">{role}</span>
         </div>
       </Link>
-    </PopAnimation>
+    </RevealAnimation>
   );
 };
 

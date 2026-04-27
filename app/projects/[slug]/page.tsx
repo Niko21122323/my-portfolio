@@ -6,6 +6,8 @@ import { getProjectBySlug, getAllProjectSlugs } from "@/lib/projects";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import CtaSection from "@/components/sections/CtaSection";
 import PrimaryButton from "@/components/PrimaryButton";
+import TextReveal from "@/components/animations/TextReveal";
+import RevealAnimation from "@/components/animations/RevelAnimation";
 
 export async function generateStaticParams() {
   const slugs = getAllProjectSlugs();
@@ -27,70 +29,92 @@ const page = async ({ params }: { params: Promise<{ slug: string }> }) => {
     <main>
       <section className="hero-padding-y">
         <div className="container">
-          <h1 className="text-foreground max-[374px]:text-4xl text-5xl sm:text-7xl lg:text-8xl xl:text-9xl font-bold pb-12 sm:pb-20 xl:pb-28">
-            {frontmatter.title}
-          </h1>
+          <TextReveal>
+            <h1 className="text-foreground max-[374px]:text-4xl text-5xl sm:text-7xl lg:text-8xl xl:text-9xl font-bold pb-12 sm:pb-20 xl:pb-28">
+              {frontmatter.title}
+            </h1>
+          </TextReveal>
           <div className="grid max-[450px]:grid-cols-1 grid-cols-2 md:grid-cols-3 gap-6 sm:gap-12 xl:max-w-3/4">
             <div className="flex flex-col">
-              <h5 className="text-foreground text-xl font-semibold border-b border-border pb-4">
-                Work Done
-              </h5>
-              <p className="text-lg text-muted font-light pt-4">
-                {frontmatter.workDone}
-              </p>
+              <TextReveal delay={0.2}>
+                <h5 className="text-foreground text-xl font-semibold border-b border-border pb-4">
+                  Work Done
+                </h5>
+              </TextReveal>
+              <TextReveal delay={0.2}>
+                <p className="text-lg text-muted font-light pt-4">
+                  {frontmatter.workDone}
+                </p>
+              </TextReveal>
             </div>
             <div className="flex flex-col">
-              <h5 className="text-foreground text-xl font-semibold border-b border-border pb-4">
-                Project Type
-              </h5>
-              <p className="text-lg text-muted font-light pt-4">
-                {frontmatter.projectType}
-              </p>
+              <TextReveal delay={0.2}>
+                <h5 className="text-foreground text-xl font-semibold border-b border-border pb-4">
+                  Project Type
+                </h5>
+              </TextReveal>
+              <TextReveal delay={0.2}>
+                <p className="text-lg text-muted font-light pt-4">
+                  {frontmatter.projectType}
+                </p>
+              </TextReveal>
             </div>
             <div className="flex flex-col max-lg:hidden">
-              <h5 className="text-foreground text-xl font-semibold border-b border-border pb-4">
-                Live & Code
-              </h5>
+              <TextReveal delay={0.2}>
+                <h5 className="text-foreground text-xl font-semibold border-b border-border pb-4">
+                  Live & Code
+                </h5>
+              </TextReveal>
+
               <div className="flex items-center gap-4 pt-4">
-                <Link
-                  href={frontmatter.liveLink}
-                  target="_blank"
-                  className="text-lg text-muted font-light"
-                >
-                  View Live
-                </Link>
+                <TextReveal delay={0.2}>
+                  <Link
+                    href={frontmatter.liveLink}
+                    target="_blank"
+                    className="text-lg text-muted font-light"
+                  >
+                    View Live
+                  </Link>
+                </TextReveal>
+
                 <div className="h-full w-[1px] bg-border"></div>
-                <Link
-                  href={frontmatter.githubLink}
-                  target="_blank"
-                  className="text-lg text-muted font-light"
-                >
-                  View on Github
-                </Link>
+                <TextReveal delay={0.2}>
+                  <Link
+                    href={frontmatter.githubLink}
+                    target="_blank"
+                    className="text-lg text-muted font-light"
+                  >
+                    View on Github
+                  </Link>
+                </TextReveal>
               </div>
             </div>
           </div>
-          <div className="flex max-[500px]:flex-col items-center gap-2 lg:hidden pt-12 sm:pt-20">
-            <PrimaryButton url={frontmatter.liveLink} title="View Live" />
-            <PrimaryButton
-              url={frontmatter.githubLink}
-              title="View on Github"
-            />
-          </div>
+          <RevealAnimation delay={0.2}>
+            <div className="flex max-[500px]:flex-col items-center gap-2 lg:hidden pt-12 sm:pt-20">
+              <PrimaryButton url={frontmatter.liveLink} title="View Live" />
+              <PrimaryButton
+                url={frontmatter.githubLink}
+                title="View on Github"
+              />
+            </div>
+          </RevealAnimation>
         </div>
       </section>
       <section>
         <div className="container">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
             {frontmatter.projectImages.map((img: string, idx: number) => (
-              <Image
-                key={img}
-                src={img}
-                alt={`${frontmatter.title} gallery ${idx + 1}`}
-                width={1920}
-                height={1080}
-                className="h-full w-full object-cover rounded-2xl sm:rounded-3xl"
-              />
+              <RevealAnimation key={img}>
+                <Image
+                  src={img}
+                  alt={`${frontmatter.title} gallery ${idx + 1}`}
+                  width={1920}
+                  height={1080}
+                  className="h-full w-full object-cover rounded-2xl sm:rounded-3xl"
+                  loading="eager"
+                />
+              </RevealAnimation>
             ))}
           </div>
         </div>
